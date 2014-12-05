@@ -109,6 +109,10 @@ class Gitlab::Client
       post("/user/keys", :body => {:title => title, :key => key})
     end
 
+    def create_ssh_key_for(user_id, title, key)
+      post("/users/#{user_id}/keys", :body => {:title => title, :key => key})
+    end
+
     # Deletes an SSH key.
     #
     # @example
